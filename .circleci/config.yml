@@ -1,0 +1,22 @@
+version: 2.1
+orbs:
+  node: circleci/node@5.0.2
+  codecov: codecov/codecov@3.2.3
+jobs:
+  install-node-example:
+    docker:
+      - image: cimg/current
+    steps:
+      - checkout
+      -run:
+        name:  node/install-packages
+        command: npm install
+      -run:
+        name: Running tests and collecting coverage 
+        command: npm run test
+      - codecov/upload
+workflow:
+    version: 2.1
+    build-test:
+        jobs:
+            -build
