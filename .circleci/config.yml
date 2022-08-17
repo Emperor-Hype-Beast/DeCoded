@@ -5,7 +5,7 @@ orbs:
 jobs:
   install-node-example:
     docker:
-      - image: cimg/current
+      - image: cimg/node:current
     steps:
       - checkout
       -run:
